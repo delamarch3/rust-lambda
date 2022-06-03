@@ -1,4 +1,8 @@
 module "post" {
+  depends_on = [
+    null_resource.build
+  ]
+  
   source        = "terraform-aws-modules/lambda/aws"
   function_name = "post-todo"
   handler       = "bootstrap"

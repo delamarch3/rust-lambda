@@ -1,4 +1,8 @@
 module "get" {
+  depends_on = [
+    null_resource.build
+  ]
+
   source        = "terraform-aws-modules/lambda/aws"
   function_name = "get-todo"
   handler       = "bootstrap"

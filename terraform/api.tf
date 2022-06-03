@@ -22,5 +22,5 @@ resource "aws_api_gateway_stage" "main" {
 }
 
 output "apigw_address" {
-  value = aws_api_gateway_deployment.main.invoke_url
+  value = "${aws_api_gateway_deployment.main.invoke_url}main/"
 }

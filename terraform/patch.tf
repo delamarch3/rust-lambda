@@ -1,4 +1,8 @@
 module "patch" {
+  depends_on = [
+    null_resource.build
+  ]
+
   source        = "terraform-aws-modules/lambda/aws"
   function_name = "patch-todo-enqueue"
   handler       = "bootstrap"
@@ -25,6 +29,10 @@ module "patch" {
 }
 
 module "patch_enqueue" {
+  depends_on = [
+    null_resource.build
+  ]
+  
   source        = "terraform-aws-modules/lambda/aws"
   function_name = "patch-todo-dequeue"
   handler       = "bootstrap"

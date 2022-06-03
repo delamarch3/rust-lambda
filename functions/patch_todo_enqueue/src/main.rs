@@ -28,7 +28,6 @@ async fn func(
 
     let sqs = Client::new(&config);
 
-
     match send_message(&sqs, event_body).await {
         Ok(_) => {
             let res = ResponseBody {

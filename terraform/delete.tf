@@ -1,4 +1,8 @@
 module "delete" {
+  depends_on = [
+    null_resource.build
+  ]
+  
   source        = "terraform-aws-modules/lambda/aws"
   function_name = "delete-todo"
   handler       = "bootstrap"
